@@ -95,7 +95,7 @@ function drawCanvas() {
 
     for (var i = 0; i < snake.tail.length; i++) {
         ctx.fillStyle = "green";
-        ctx.fillRect(snake.tail[i].x + 2.5, snake.tail[i].y + 2.5, snake.size - 5, snake.size - 5);
+        ctx.fillRect(snake.tail[i].x + 1.5, snake.tail[i].y + 1.5, snake.size - 3, snake.size - 3);
     }
 
     ctx.fillStyle = apple.color;
