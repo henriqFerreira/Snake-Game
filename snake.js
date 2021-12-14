@@ -65,6 +65,7 @@ class Apple {
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
+var scoreText = document.getElementById("menuScore");
 
 var snake = new Snake(20, 20, 20);
 var apple = new Apple();
@@ -94,9 +95,14 @@ function drawCanvas() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (var i = 0; i < snake.tail.length; i++) {
-        ctx.fillStyle = "green";
-        ctx.fillRect(snake.tail[i].x + 1.5, snake.tail[i].y + 1.5, snake.size - 3, snake.size - 3);
+        ctx.beginPath();
+        ctx.lineWidth = "3";
+        ctx.strokeStyle = "green";
+        ctx.rect(snake.tail[i].x + 1.5, snake.tail[i].y + 1.5, snake.size - 3, snake.size - 3);
+        ctx.stroke();
     }
+
+    scoreText.innerHTML = snake.tail.length - 1;
 
     ctx.fillStyle = apple.color;
     ctx.fillRect(apple.x, apple.y, apple.size, apple.size);
